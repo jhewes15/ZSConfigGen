@@ -1,0 +1,1186 @@
+ASIC: [  {
+  FT10_P0:{
+    reconfigure : false
+  }
+  FT10_P1:{
+    reconfigure : false
+  }
+  FT11_P0:{
+    reconfigure : false
+  }
+  FT11_P1:{
+    reconfigure : false
+  }
+  FT1_P0:{
+    reconfigure : false
+  }
+  FT1_P1:{
+    reconfigure : false
+  }
+  FT2_P0:{
+    reconfigure : false
+  }
+  FT2_P1:{
+    reconfigure : false
+  }
+  FT3_P0:{
+    reconfigure : false
+  }
+  FT3_P1:{
+    reconfigure : false
+  }
+  FT4_P0:{
+    reconfigure : false
+  }
+  FT4_P1:{
+    reconfigure : false
+  }
+  FT5_P0:{
+    reconfigure : false
+  }
+  FT5_P1:{
+    reconfigure : false
+  }
+  FT6_P0:{
+    reconfigure : false
+  }
+  FT6_P1:{
+    reconfigure : false
+  }
+  FT7_P0:{
+    reconfigure : false
+  }
+  FT7_P1:{
+    reconfigure : false
+  }
+  FT8_P0:{
+    reconfigure : false
+  }
+  FT8_P1:{
+    reconfigure : false
+  }
+  FT9_P0:{
+    reconfigure : false
+  }
+  FT9_P1:{
+    reconfigure : false
+  }
+}  ]
+Flasher: [  {
+  amplitude : 0.1
+  burstmode : 0
+  channel : 2
+  frequency : 1e4
+  ip : "192.168.144.192"
+  output : 0
+  pulsewidth : 20
+  reconfigure : true
+}  ]
+Pulser: [  {
+  amplitude : 0.1
+  burstmode : 0
+  channel : 1
+  frequency : 1e4
+  ip : "192.168.144.192"
+  output : 0
+  pulsewidth : 20
+  reconfigure : true
+}  ]
+Strobe1: [  {
+  amplitude : 0.8
+  burstmode : 0
+  channel : 1
+  dcoffset : -0.4
+  frequency : 5
+  ip : "192.168.144.191"
+  output : 1
+  polarity : 0
+  pulsewidth : 5
+  reconfigure : true
+}  ]
+Strobe2: [  {
+  amplitude : 0.8
+  burstmode : 0
+  channel : 2
+  dcoffset : -0.4
+  frequency : 0.1
+  ip : "192.168.144.191"
+  output : 0
+  polarity : 0
+  pulsewidth : 5
+  reconfigure : false
+}  ]
+assemblerAppevb: [  {
+  dispatcher:{
+    shmKey : 0x0deaf0
+    shmSize : 1000000000
+  }
+  fragment_reception:{
+    assembler_max_wait : 1000
+  }
+  process_and_ship:{
+    data_dir_name : "/data/uboonedaq/TestRuns"
+    data_file_name : "2StreamTest"
+    do_dispatcher_feed : true
+    events_per_subrun : 50
+  }
+  registration:{
+    seb1:{
+      name : "sebpriv01"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb10:{
+      name : "sebpriv10"
+      port : 33421
+      timeout : 5e3
+      type : "PMT"
+    }
+    seb2:{
+      name : "sebpriv02"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb3:{
+      name : "sebpriv03"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb4:{
+      name : "sebpriv04"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb5:{
+      name : "sebpriv05"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb6:{
+      name : "sebpriv06"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb7:{
+      name : "sebpriv07"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb8:{
+      name : "sebpriv08"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    seb9:{
+      name : "sebpriv09"
+      port : 33421
+      timeout : 5e3
+      type : "TPC"
+    }
+    trg:{
+      name : "sebpriv10"
+      port : 33422
+      timeout : 5e3
+      type : "TRIGGER"
+    }
+  }
+  software_trg:{
+    drop_event : true
+    swtrg_algonames : ["EXT_BNBwin","EXT_NUMIwin","EXT_unbiased"]
+    swtrg_algotype : ["FEMBeamTriggerAlgo","FEMBeamTriggerAlgo","PrescaleAlgo"]
+    swtrg_beam_window_size : 1100
+    swtrg_bits : [0x200,0x200,0x200]
+    EXT_BNBwin_FEMBeamTriggerAlgo:{
+      Discr0deadtime : 6
+      Discr0delay : 4
+      Discr0precount : 1
+      Discr0threshold : 5
+      Discr3WindowSize : 124
+      Discr3WindowStart : 186
+      Discr3deadtime : 6
+      Discr3delay : 4
+      Discr3threshold : 10
+      Discr3width : 6
+      MinReadoutTicks : 500
+      PrescaleFactor : 1.0
+      TriggerThresMult : 1
+      TriggerThresPHMAX : 130
+      TriggerWindowSize : 120
+      TriggerWindowStart : 190
+      Verbosity : 3
+    }
+    EXT_NUMIwin_FEMBeamTriggerAlgo:{
+      Discr0deadtime : 6
+      Discr0delay : 4
+      Discr0precount : 1
+      Discr0threshold : 5
+      Discr3WindowSize : 754
+      Discr3WindowStart : 296
+      Discr3deadtime : 6
+      Discr3delay : 4
+      Discr3threshold : 10
+      Discr3width : 6
+      MinReadoutTicks : 500
+      PrescaleFactor : 0.05
+      TriggerThresMult : 1
+      TriggerThresPHMAX : 190
+      TriggerWindowSize : 750
+      TriggerWindowStart : 300
+      Verbosity : 3
+    }
+    EXT_unbiased_PrescaleAlgo:{
+      PrescaleFactor : 0.001
+    }
+  }
+}  ]
+dispatcherevb: [  {
+  dispatcherPort : 2013
+  logLevel : "info"
+  shmCreateIfNotExist : 1
+  shmKey : 0x0deaf0
+  shmSize : 1000000000
+}  ]
+online_monitornear1: [  {
+  dispatcherHost : "ubdaq-prod-evb-priv"
+  dispatcherPort : 2013
+  doStripRequests : 1
+  newFileOnSubrunChange : 0
+  outputDirectory : "/datalocal/om"
+  plexusPmtSource : "sqlite /uboonenew/online_database/plexus13.db"
+  plexusTpcSource : "postgres host=ifdb02.fnal.gov user=uboonedaq_web port=5444 db=hootgibson_prod password=argon!uBooNE"
+  plexusTpcSource_fallback : "sqlite /uboonenew/online_database/plexus13.db"
+  timeBetweenWrites : 120
+  writeAfterFirstEvents : 1
+}  ]
+sebAppseb01: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 1
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv01"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv01"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv01"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7ff00
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 7
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb02: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 2
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv02"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv02"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv02"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb03: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 3
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv03"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv03"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv03"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb04: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 4
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv04"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv04"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv04"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb05: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 5
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv05"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv05"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv05"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb06: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 6
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv06"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv06"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv06"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb07: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 7
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv07"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv07"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv07"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb08: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 8
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv08"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv08"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv08"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7fff0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 3
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb09: [  {
+  controller:{
+    slot : 0
+  }
+  neviscard_controller:{
+    bus : 0x9
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x5
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    compress : true
+    delay_after_trigger : 0
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    fragment_id : 9
+    max_internal_trigger : 1e9
+    maxpoll : 2e8
+    min_fragment_size : 25e6
+    name : "sebpriv09"
+    port : 33421
+    sink : assembler
+    source : dma
+    trigger_source : EXT
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv09"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "TPC"
+    xmit_timesize : 3199
+  }
+  registration:{
+    name : "sebpriv09"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "TPC"
+  }
+  tpc:{
+    channels : 64
+    slots : 0x7ffe0
+  }
+  xmit:{
+    nu_compress : true
+    nu_source : dma
+    slot : 4
+    sn_compress : true
+    sn_source : dump
+    timesize : 3199
+  }
+  zero_suppression:{
+    load_threshold : 100
+    load_threshold_mean : 10
+    load_threshold_variance : 100
+    bipolar : 2
+    presample : 2
+    postsample : 3
+    channel_threshold : 1
+  }
+}  ]
+sebAppseb10: [  {
+  controller:{
+    slot : 0
+  }
+  gps:{
+    enabled : true
+  }
+  neviscard_controller:{
+    bus : 0x3
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_nu:{
+    bus : 0x44
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  neviscard_sn:{
+    bus : 0x4
+    device_id : 0x4
+    vendor_id : 0x1172
+  }
+  nu_stream:{
+    circular_buffer_size : 1e9
+    delay_after_trigger : 0
+    dma_buffer_size : 1e5
+    dmastrategy : disrespect
+    fragment_id : 10
+    max_internal_trigger : 0
+    maxpoll : 6e8
+    min_fragment_size : 1e6
+    name : "sebpriv10"
+    port : 33421
+    sink : assembler
+    source : dma_pmt
+    trigger_source : EXT
+    type : "PMT"
+    xmit_timesize : 3199
+  }
+  sn_stream:{
+    circular_buffer_size : 1e11
+    compress : true
+    dma_buffer_size : 2e5
+    dmastrategy : disrespect
+    maxpoll : 1e8
+    name : "sebpriv10"
+    port : 33421
+    source : dump
+    sink : file
+    file_size : 1e6
+    data_dir_name : "/datalocal/supernova"
+    data_file_name : "2StreamTest"
+    type : "PMT"
+    xmit_timesize : 3199
+  }
+  pmt4:{
+    beam_mult : 40
+    beam_thres : 4095
+    channels : 40
+    cos_mult : 40
+    cos_thres : 4095
+    enable_bottom : 0x0
+    enable_middle : 0x0
+    enable_top : 0xffff
+    pmt_beam1_read_delay : 10
+    pmt_beam1_read_size : 1500
+    pmt_beam1_trig_delay : 256
+    pmt_beam1_trig_size : 0
+    pmt_beam2_read_delay : 10
+    pmt_beam2_read_size : 1500
+    pmt_beam2_trig_delay : 256
+    pmt_beam2_trig_size : 0
+    pmt_blocksize : 0xffff
+    pmt_deadtime : 45
+    pmt_delay0 : 4
+    pmt_delay1 : 12
+    pmt_mich_mul : 0
+    pmt_mich_thres : 0
+    pmt_mich_window : 0
+    pmt_precount : 3
+    pmt_width : 5
+    pmt_words : 40
+    threshold0 : 80
+    threshold1 : 1000
+    threshold2 : 4095
+    threshold3 : 4095
+  }
+  pmt5:{
+    beam_mult : 40
+    beam_thres : 4095
+    channels : 40
+    cos_mult : 40
+    cos_thres : 4095
+    enable_bottom : 0xffff
+    enable_middle : 0xffff
+    enable_top : 0xffff
+    pmt_beam1_read_delay : 10
+    pmt_beam1_read_size : 1500
+    pmt_beam1_trig_delay : 256
+    pmt_beam1_trig_size : 0
+    pmt_beam2_read_delay : 10
+    pmt_beam2_read_size : 1500
+    pmt_beam2_trig_delay : 256
+    pmt_beam2_trig_size : 0
+    pmt_blocksize : 0xffff
+    pmt_deadtime : 45
+    pmt_delay0 : 4
+    pmt_delay1 : 12
+    pmt_mich_mul : 0
+    pmt_mich_thres : 0
+    pmt_mich_window : 0
+    pmt_precount : 3
+    pmt_width : 5
+    pmt_words : 40
+    threshold0 : 5
+    threshold1 : 90
+    threshold2 : 4095
+    threshold3 : 4095
+  }
+  pmt6:{
+    beam_mult : 40
+    beam_thres : 4095
+    channels : 40
+    cos_mult : 40
+    cos_thres : 4095
+    enable_bottom : 0xffff
+    enable_middle : 0xffff
+    enable_top : 0xffff
+    pmt_beam1_read_delay : 10
+    pmt_beam1_read_size : 1500
+    pmt_beam1_trig_delay : 256
+    pmt_beam1_trig_size : 0
+    pmt_beam2_read_delay : 10
+    pmt_beam2_read_size : 1500
+    pmt_beam2_trig_delay : 256
+    pmt_beam2_trig_size : 0
+    pmt_blocksize : 0xffff
+    pmt_deadtime : 45
+    pmt_delay0 : 4
+    pmt_delay1 : 12
+    pmt_mich_mul : 0
+    pmt_mich_thres : 0
+    pmt_mich_window : 0
+    pmt_precount : 3
+    pmt_width : 5
+    pmt_words : 40
+    threshold0 : 5
+    threshold1 : 140
+    threshold2 : 4095
+    threshold3 : 4095
+  }
+  registration:{
+    name : "sebpriv10"
+    recipe : 2stream_new
+    trigger_source : EXT
+    type : "PMT"
+  }
+  trg_stream:{
+    circular_buffer_size : 4e4
+    dma_buffer_size : 1e3
+    fragment_id : 11
+    name : "sebpriv10"
+    port : 33422
+    sink : assembler
+    source : trg
+    type : "TRIGGER"
+  }
+  trigger:{
+    deadtime : 0xfa
+    framesize : 25599
+    g1delay : 0x10
+    g1end : 0x1
+    g1start : 0x1
+    g1width : 0x20
+    g2delay : 0x10
+    g2end : 0x20
+    g2start : 0x1
+    g2width : 0x20
+    prescale0 : 0
+    prescale1 : 0
+    prescale8 : 0
+    prescale9 : 0
+    slot : 2
+    timeinfo_directory : "/data/uboonedaq/supernova_test_metadata"
+    trigmask0 : 0
+    trigmask1 : 0
+    trigmask8 : 0x102
+  }
+  xmit:{
+    nu_source : dma_pmt
+    slot : 3
+    sn_source : dump
+    timesize : 3199
+  }
+}  ]
