@@ -8,6 +8,7 @@ class ConfigGen:
   _presample = 2
   _postsample = 3
   _threshold = 50
+  _polarity = 3
 
   def __init__(self,input_config_name,output_config_name):
     self.f_in = open(input_config_name,'r')
@@ -26,7 +27,7 @@ class ConfigGen:
     self.CopyUntilEnd()
 
   def WriteHeader(self):
-    self.f_out.write("  zero_suppression:{{\n")
+    self.f_out.write("  zero_suppression:{\n")
     self.f_out.write("    params:{\n")
     self.f_out.write("      load_threshold_mean : {}\n".format(self._load_threshold_mean))
     self.f_out.write("      load_threshold_variance : {}\n".format(self._load_threshold_variance))
@@ -41,9 +42,9 @@ class ConfigGen:
       exit(1)
     slot = fem + self.GetFirstModule(crate)
     self.f_out.write("    slot{}:{{\n".format(slot))
-    self.f_out.write("      bipolar : {}\n".format(self._polarity_map[crate-1][fem]))
     for channel in xrange(self.GetNumberOfChannels(crate,slot)):
       self.f_out.write("      ch{} : {}\n".format(channel,self._threshold_map[crate-1][fem][channel]))
+      self.f_out.write("      pol{} : {}\n".format(channel,self._polarity_map[crate-1][fem][channel]))
     self.f_out.write("    }\n")
 
   def CopyUntilString(self,s):
@@ -96,21 +97,22 @@ class ConfigGen:
     for crate_it in range(1,10):
       crate_polarity = []
       for fem_it in xrange(self.GetNumberOfModules(crate_it)):
-        if crate_it == 1 or crate_it == 9:
-          crate_polarity.append(1)
-        else:
-          crate_polarity.append(0)
+        slot_polarity = []
+        slot = fem_it + self.GetFirstModule(crate_it)
+        for channel_it in xrange(self.GetNumberOfChannels(crate_it,slot)):
+          slot_polarity.append(self._polarity)
+        crate_polarity.append(slot_polarity)
       self._polarity_map.append(crate_polarity)
 
-  def SetPolarity(self,crate,slot,polarity):
+  def SetChannelPolarity(self,crate,slot,channel,polarity):
     if len(self._polarity_map) != 9:
       print "Error: Must run InitPolarityMap before setting individual polarity! Exiting..."
       exit(1)
-    if polarity < 0 or polarity > 2:
-      print "Error! Polarity setting must be 0, 1 or 2! Exiting..."
+    if polarity < 1 or polarity > 3:
+      print "Error! Polarity setting must be 1, 2 or 3! Exiting..."
       exit(1)
     fem = slot - self.GetFirstModule(crate)
-    self._polarity_map[crate-1][fem] = polarity
+    self._polarity_map[crate-1][fem][channel] = polarity
 
   def GetFirstModule(self,crate):
     if crate == 1:
@@ -156,3 +158,7 @@ class ConfigGen:
 
   def SetBaseThreshold(self,threshold):
     self._threshold = threshold
+
+  def SetBasePolarity(self,polarity):
+    self._polarity = polarity
+
